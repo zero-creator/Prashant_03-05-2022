@@ -1,0 +1,139 @@
+1.What is difference in Overloading and Over riding?
+	When a class has more than one method having the same name but different in parameters, it is called method overloading in Java. The signature of the overloaded method must be different. Method overloading is generally performed in the same class. In overloading, access modifiers can be anything or different.
+	When the method of superclass is overridden in subclass to provide more specific implementation, it is called method overriding in Java. The signature of the overriding method must be the same. Method overriding is performed in two classes through inheritance. In overriding, subclass method’s access modifier must be the same or higher than superclass method access modifier that is we cannot reduce the visibility subclass method while overriding.
+2.If both the functions are statis can we override.?
+Static methods cannot be override because method overriding is based on dynamic binding at runtime and the static methods are bonded using static binding at compile time. So, we cannot override static methods.
+
+3. Diffference bew Final , Finally and Finalize ?
+	Final- final is the keyword and access modifier which is used to apply restrictions on a class, method or variable.
+	Finally- finally is the block in Java Exception Handling to execute the important code whether the exception occurs or not.
+	Finalize- finalize is the method in Java which is used to perform clean up processing just before object is garbage collected.
+	Example-
+	Final-
+Final Class sample  // cannot extend sample class since it is final
+{	
+}
+	Class demo{
+Public static void main(String args[]){
+Final int a=10; // cannot modifying the final variable
+final void Try() {} // cannot Overridden Try method since it is final
+}
+
+Finally-
+	try{
+	int a=10/0;
+	}
+	catch(Exception e){
+	System.out.println(“Exception caught”);
+} 
+finally
+        {
+       System.out.println("Executes whether exception occurs or not");
+        }
+
+Finalize-
+	class Demo {
+    public static void main(String[] args)
+    {
+        Demo m = new Demo();
+  
+        // Calling finalize method Explicitly.
+        m.finalize();
+        m = null;
+  
+        // Requesting JVM to call Garbage Collector method
+        System.gc();
+        System.out.println("Main Completes");
+    }
+  
+    // Here overriding finalize method
+    public void finalize()
+    {
+        System.out.println("finalize method");
+    }
+Output will be 
+	finalize method
+Main Completes
+finalize method
+4.What are maker Interfaces
+A marker interface is an interface that has no methods or constants inside it. It provides run-time type information about objects, so the compiler and JVM have additional information about the object.
+A marker interface is also called a tagging interface.
+
+5.What is Singleton class
+ It is a class that has only one instance and provides a global point of access to it.
+In a simpler way, it’s a class must ensure that only single instance should be created and single object can be used by all other classes.
+
+6.What is the underlying Data structure for Arraylist and Linkedlist
+underlying Data structure for Arraylist - array of Object class
+underlying Data structure for Linkedlist - Doubly Linked List
+
+7.What is hash collision?
+when two pieces of data in a hash table share the same hash value.
+hash collision occurs when two or more key objects produce the same final hash value and hence point to the same bucket location or array index.
+
+8.What are lambda Expressions
+Lambda expressions are introduced in Java. Lambda expression facilitates functional programming, and simplifies the development.it provides implementation of functional interface.
+
+9.Whats is functional interface
+An Interface that contains exactly one abstract method is known as functional interface. It can have any number of default, static methods but can contain only one abstract method. It can also declare methods of object class. Functional Interface is also known as Single Abstract Method Interfaces or SAM Interfaces.
+
+10.What are optional classes in Java 8
+Optional is a container object used to contain not-null objects. Optional object is used to represent null with absent value. This class has various utility methods to facilitate code to handle values as 'available' or 'not available' instead of checking null values.
+
+11.Whats is factory design pattern and Adapter and difference bwt them
+Factory pattern is one of the most used design patterns in Java. This type of design pattern comes under creational pattern as this pattern provides one of the best ways to create an object.
+In Factory pattern, we create object without exposing the creation logic to the client and refer to newly created object using a common interface.
+Adapter pattern works as a bridge between two incompatible interfaces. This type of design pattern comes under structural pattern as this pattern combines the capability of two independent interfaces.
+This pattern involves a single class which is responsible to join functionalities of independent or incompatible interfaces.
+
+12.What are Solid principles
+SOLID principles are an object-oriented approach that are applied to software structure design. It is conceptualized by Robert C. Martin
+The word SOLID acronym for:
+o	Single Responsibility Principle (SRP)
+o	Open-Closed Principle (OCP)
+o	Liskov Substitution Principle (LSP)
+o	Interface Segregation Principle (ISP)
+o	Dependency Inversion Principle (DIP)
+
+13. What does @component and scan do in Sprinboot annaotation
+@Component is an annotation that allows Spring to automatically detect our custom beans. In other words, without having to write any explicit code, Spring will: Scan our application for classes annotated with @Component.
+@ComponentScan annotation enables component scanning in Spring.
+
+14.Whats is the Difference bwt JPA , Hibernate and ORM
+1.	ORM is the approach of taking object-oriented data and mapping to a relational data store (e.g. tables in a RDBMS)
+2.	JPA is the Java EE standard specification for ORM in Java EE.
+3.	The reference implementation for JPA is EclipseLink. If you don't explictly configure a provider, EclipseLink is used under the covers.
+4.	Hibernate is another implementation of the JPA specification, in that you can use the standard JPA APIs and configure your application to use Hibernate as the provider of the spec under the covers.
+5.	Hibernate also provides a superset of the ORM features beyond what is specified in the JPA spec. Meaning, that while it provides an implementation of the JPA API, it also provides more features beyond what JPA specifies.
+
+
+
+15.What is indexing in Database
+
+Indexing is a way to optimize the performance of a database by minimizing the number of disk accesses required when a query is processed. It is a data structure technique which is used to quickly locate and access the data in a database. Indexes are created using a few database columns.
+
+16.What are 4 types of Drivers in Jdbc.
+
+Types of JDBC drivers: 
+1.	Type-1 driver or JDBC-ODBC bridge driver 
+2.	Type-2 driver or Native-API driver 
+3.	Type-3 driver or Network Protocol driver 
+4.	Type-4 driver or Thin driver
+
+
+17.What is difrence bew @component and @bean and @service
+@Component Preferable for component scanning and automatic wiring.
+@Bean annotation returns an object that spring should register as bean in application context.
+@Service annotates classes at the service layer.
+
+18. What is difference bew SOAP and restful services techinically
+SOAP is protocol based while REST is an architecture. Developers find working with REST little easier as compared with SOAP.
+While handling SOAP request response, we deal with only XML. In case of REST, we have flexibility to choose in XML,JSON, text.
+
+19 . Difference in POST and PUT
+PUT method is call when you have to modify a single resource, which is already a part of resource collection.it works as specific
+POST method is call when you have to add a child resource under resources collection.it work as abstract.
+Also, calling the same PUT request multiple times will always produce the same result. In contrast, calling a POST request repeatedly have side effects of creating the same resource multiple times.
+
+20.IS react uni directional or Bi directional
+React, a Javascript library, uses unidirectional data flow. The data from the parent is known as props. You can only transfer data from parent to child and not vice versa.
